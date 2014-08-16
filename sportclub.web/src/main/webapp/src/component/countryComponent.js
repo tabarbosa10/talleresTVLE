@@ -1,4 +1,4 @@
-/* ========================================================================
+    /* ========================================================================
  * Copyright 2014 tallerCrud
  *
  * Licensed under the MIT, The MIT License (MIT)
@@ -32,7 +32,20 @@ define(['component/_CRUDComponent', 'controller/toolbarController', 'model/toolb
         name: 'country',
         model: App.Model.CountryModel,
         listModel: App.Model.CountryList,
-        controller : App.Controller.CountryController
+        controller : App.Controller.CountryController,
+        postInit: function(){
+            var self = this;
+            this.toolbarModel.set('createName','Crear');
+            this.toolbarModel.set('refreshName','Refrescar');
+            this.toolbarModel.set('showPrint',false);
+            this.toolbarModel.set('title','Pais');
+            this.toolbarModel.set('showSearch',false);
+            this.toolbarModel.set('saveName','Guardar');
+            this.toolbarModel.set('cancelName','Cancelar');
+            this.addButton({name:"Idioma",icon: "glyphicon-question-sign",}, function(){
+               self.componentController.language(); 
+            });
+        }
     });
     return App.Component.CountryComponent;
 });
