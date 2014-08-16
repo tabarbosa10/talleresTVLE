@@ -42,10 +42,10 @@ define([], function() {
         },
         getDisplay: function(name) {
 			 if(name=='cityId'){  
-                 var value = App.Utils.getModelFromCache('cityComponent',this.get('cityId'));
-                 if(value) 
-                 return value.get('name');
-             }
+                            var value = App.Utils.getModelFromCache('cityComponent',this.get('cityId'));
+                                if(value) 
+                                    return value.get('name');
+                         }
          return this.get(name);
         }
     });

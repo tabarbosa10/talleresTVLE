@@ -32,6 +32,16 @@ define(['model/_addressModel'], function() {
 
  	validate: function(attrs,options){
             var validationMessage = "";
+            
+            if( attrs.street=="" || attrs.aveneu=="" || attrs.cityId==""){
+                validationMessage="Dejo campos vacions";
+            }
+            if( isNaN(attrs.street) || isNaN(attrs.aveneu)){
+                validationMessage="The street and aveneu need to be numbers";
+            }
+            if( attrs.street.length >= 3 || attrs.aveneu.length>=3){
+                validationMessage="Los numeros de street y avenue tienen mas de 3 digitos";
+            }
             if(validationMessage.length>0){
                return validationMessage;
             }

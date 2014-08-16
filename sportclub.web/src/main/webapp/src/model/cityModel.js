@@ -35,6 +35,10 @@ define(['model/_cityModel'], function() {
             if(!attrs.name){
                 validationMessage = "The name can't be empty.";
             }
+            if(!attrs.countryId){
+                validationMessage = "The country can't be empty.";
+            }
+                
             if(validationMessage.length>0){
                return validationMessage;
             }
