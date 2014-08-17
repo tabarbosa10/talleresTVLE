@@ -32,6 +32,8 @@ define(['model/_memberModel'], function() {
 
  	validate: function(attrs,options){
             var validationMessage = "";
+            var ahora = new Date();
+            var vieja = new Date(30/07/1914);
             if(!attrs.name){
                 validationMessage = "The name can't be empty.";
             }
@@ -43,6 +45,18 @@ define(['model/_memberModel'], function() {
             }
             if(attrs.lastName === ""){
                  validationMessage = "El apellido debe ser diferente de vacio";
+            }
+            if (attrs.birthDate> vieja)
+            {
+                validationMessage ="El miembro debe tener menos de 100 años.";
+            }
+            if( attrs.documenttypeId === "None")
+            {
+                 validationMessage="Se debe especificar el tipo de documento";
+            }
+            if(attrs.birthDate === ahora || attrs.birthDate>ahora )
+            {
+                validationMessage="La fecha de nacimiento del miembro no puede superar ni ser igual a la fecha actual";
             }
             if(validationMessage.length>0){
                return validationMessage;
