@@ -16,6 +16,7 @@
 		<td><%= htmlEncode(championShip.getDisplay('name')) %></td>
 		<td><%= htmlEncode(championShip.getDisplay('startDate')) %></td>
 		<td><%= htmlEncode(championShip.getDisplay('endDate')) %></td>
+                <td><a onclick="Backbone.trigger('<%= componentId %>-championShip-prom',{endDate:<%= htmlEncode(championShip.getDisplay('endDate')) %>,startDate:<%= htmlEncode(championShip.getDisplay('startDate')) %>}); return false;" >Ver Promedio</a></td>
     <td>
     <% if(showEdit) {%>
     <a onclick="Backbone.trigger('<%= componentId %>-championShip-edit',{id:<%= championShip.id %>}); return false" >Editar</a> |

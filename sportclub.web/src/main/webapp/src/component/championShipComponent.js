@@ -35,6 +35,9 @@ define(['component/_CRUDComponent', 'controller/toolbarController', 'model/toolb
         controller : App.Controller.ChampionShipController,
         postInit:function(){
             var self = this;
+            Backbone.on(self.componentId + '-championShip-prom', function(params) {
+                self.componentController.average(params);
+            });
             this.toolbarModel.set('createName','Crear');
             this.toolbarModel.set('refreshName','Refrescar');
             this.toolbarModel.set('showPrint',false);
