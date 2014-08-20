@@ -16,8 +16,9 @@ define(['model/memberEdadModel'], function(){
     });
     
     App.Model.MemberEdadList=Backbone.Collection.extend({
-       model:App.Model.MemberEdadModel
+       model: App.Model.MemberEdadModel
     });
     
+    return App.Model.MemberEdadModel;
 });
 

@@ -115,7 +115,7 @@
                    <% var nomb = memb.getDisplay('name'); %>
                    <% var edad = memb.getDisplay('age'); %>
                    <% if(edad < 18) { %>
-                       <tr class="info">
+                       <tr class="warning">
                           <td> <%= htmlEncode(nomb) %> </td>
                           <td> <%= htmlEncode(edad) %> </td>  
                        </tr>

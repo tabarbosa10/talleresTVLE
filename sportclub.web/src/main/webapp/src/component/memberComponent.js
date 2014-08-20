@@ -35,8 +35,9 @@ define(['component/_CRUDComponent', 'controller/toolbarController', 'model/toolb
         listModel: App.Model.MemberList,
         controller : App.Controller.MemberController,
         postInit:function(){
+            var self = this;
             this.addButton({name: "EDADES", icon: "glyphicon-stats"}, function() {
-                 self.componentController.memberAge();
+                 self.componentController.display();
             });
         }
         

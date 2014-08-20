@@ -37,11 +37,12 @@ define(['controller/_memberController','delegate/memberDelegate'], function() {
         _renderAge : function() {
             var self = this;
             this.$el.slideUp("fast", function(){
-                self.$el.html(self.listMemberEdadTemplate({members: self.memberEdadList.models}));
+                var x = self.memberEdadModelList ;
+                self.$el.html(self.listMemberEdadTemplate({members: x.models}));
                 self.$el.slideDown("fast");
             });
         },
-        memberAge : function(params) {
+        display : function(params) {
             if(params){
                 var data = params.data;
             }
@@ -58,12 +59,12 @@ define(['controller/_memberController','delegate/memberDelegate'], function() {
                      data: data,
                      success: function(){
                          var elementos = self.memberModelList.models;
-                         self.memberEdadModelList = new App.Model.memberEdadList;
+                         self.memberEdadModelList = new App.Model.MemberEdadList;
                          _.each(elementos , function(d){
                             var hoy = new Date();
-                            var cumpleanos = d.attributes.birthDate;
-                            var nEdad = -1*( parseInt(cumpleanos.toString().split("/")[2])
-                                          -parseInt(hoy.toString.split(" ")[3] ) ) ; 
+                            var dateparts = d.attributes.birthDate.split("/");
+                            var cumpleanos = new Date(dateparts[2], (dateparts[1]-1), dateparts[0]);
+                            var nEdad = Math.floor(Math.abs(hoy-cumpleanos)/(3600*24*365*1000)); 
                             var model = new App.Model.MemberEdadModel({name: d.attributes.name,age:nEdad});
                             self.memberEdadModelList.models.push(model);
                          });
