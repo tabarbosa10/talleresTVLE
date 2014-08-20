@@ -49,6 +49,7 @@ define(['controller/_sportController','delegate/sportDelegate'], function() {
         //Elementos para invocar el servicio getSports
             if (params) {
                 var data = params.data;
+                console.log();
             }
             if (App.Utils.eventExists(this.componentId + '-' + 'instead-sport-list')) {
                 Backbone.trigger(this.componentId + '-' + 'instead-sport-list', {view: this, data: data});
