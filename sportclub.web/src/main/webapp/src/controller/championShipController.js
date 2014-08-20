@@ -35,6 +35,7 @@ define(['controller/_championShipController','delegate/championShipDelegate'], f
         average: function(params){
             var avg = Math.exp(0.5 *(Date.parse(params.endDate) - Date.parse(params.start)) );
             alert('El costo es: ' + avg);
+            console.log('codigo bajo mergee');
         }
     });
     

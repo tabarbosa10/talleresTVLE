@@ -39,6 +39,7 @@ define(['component/_CRUDComponent', 'controller/toolbarController', 'model/toolb
             this.addButton({name: "EDADES", icon: "glyphicon-stats"}, function() {
                  self.componentController.display();
             });
+           
         }
         
     });

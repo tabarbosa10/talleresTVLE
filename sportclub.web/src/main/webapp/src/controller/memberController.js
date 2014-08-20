@@ -50,6 +50,7 @@ define(['controller/_memberController','delegate/memberDelegate'], function() {
                  Backbone.trigger(this.componentId + '-' + 'instead-member-list', {view: this, data: data});
             }else{
                  Backbone.trigger(this.componentId + '-' + 'pre-member-list', {view: this, data: data});
+                 
                  var self = this;
                  if(!this.memberModelList){
                      this.memberModelList = new this.list.ModelClass();
