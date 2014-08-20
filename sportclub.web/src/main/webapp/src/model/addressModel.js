@@ -42,6 +42,10 @@ define(['model/_addressModel'], function() {
             if( attrs.street.length >= 3 || attrs.aveneu.length>=3){
                 validationMessage="Los numeros de street y avenue tienen mas de 3 digitos";
             }
+            if( attrs.cityId == "" ){
+                validationMessage ="Tiene que escoger un cityId";
+            }
+                
             if(validationMessage.length>0){
                return validationMessage;
             }

@@ -99,3 +99,35 @@
     </form>
     </div>
 </script> 
+
+<script type="text/template" id="memberEdadList">
+
+    <div class="panel panel-default">
+        <table class="table striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% _.each(members,function(memb) { %>
+                   <% var nomb = memb.getDisplay('name'); %>
+                   <% var edad = memb.getDisplay('age'); %>
+                   <% if(edad < 18) { %>
+                       <tr class="info">
+                          <td> <%= htmlEncode(nomb) %> </td>
+                          <td> <%= htmlEncode(edad) %> </td>  
+                       </tr>
+                   <%} else { %>
+                       <tr>
+                          <td> <%= htmlEncode(nomb) %> </td>
+                          <td> <%= htmlEncode(edad) %> </td>  
+                       </tr>
+                   <%}%>
+                <%});%>
+            </tbody>
+        </table>
+    </div>
+</script>
+
